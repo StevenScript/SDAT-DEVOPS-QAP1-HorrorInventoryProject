@@ -26,4 +26,16 @@ public class InventoryTest {
         assertTrue(inventory.hasItem("Flashlight"),
                 "Flashlight should be in the inventory after adding it");
     }
+
+    @Test
+    @DisplayName("Test removing an item")
+    void testRemoveItem() {
+        // Add an item
+        inventory.addItem("Key");
+
+        // Attempt to remove the item
+        boolean removed = inventory.removeItem("Key");
+        assertTrue(removed, "removeItem should return true if item was present");
+        assertFalse(inventory.hasItem("Key"), "After removal, Key should not be in inventory");
+    }
 }
