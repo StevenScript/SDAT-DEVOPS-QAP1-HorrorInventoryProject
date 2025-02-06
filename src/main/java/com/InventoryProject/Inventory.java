@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * Inventory class that manages a list of item names.
- * For now, it is set up as an empty structure that just compiles.
+ * For now, it only works with adding items.
  */
 public class Inventory {
 
@@ -15,9 +15,9 @@ public class Inventory {
         this.items = new ArrayList<>();
     }
 
-    // We'll implement the methods soon:
+    // Methods to interact with inventory items
     public void addItem(String itemName) {
-        // TODO: Implement
+        items.add(itemName);
     }
 
     public boolean removeItem(String itemName) {
@@ -26,8 +26,7 @@ public class Inventory {
     }
 
     public boolean hasItem(String itemName) {
-        // TODO: Implement
-        return false;
+        return items.contains(itemName);
     }
 
     public boolean useItem(String itemName) {

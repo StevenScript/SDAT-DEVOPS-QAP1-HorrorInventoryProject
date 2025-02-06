@@ -23,7 +23,6 @@ public class InventoryTest {
     @DisplayName("Test if an item can be added")
     void testAddItem() {
         inventory.addItem("Flashlight");
-        // The hasItem method should return true once we implement it
         assertTrue(inventory.hasItem("Flashlight"),
                 "Flashlight should be in the inventory after adding it");
     }
