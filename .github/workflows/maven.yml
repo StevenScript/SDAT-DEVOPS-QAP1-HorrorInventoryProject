@@ -22,14 +22,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      # 3) Build with Maven (navigating to the subfolder if needed)
+      # 3) Build with Maven
       - name: Build with Maven
         run: |
-          cd HorrorInventoryProject
           mvn -B package
 
       # 4) Run tests (also from the subfolder)
       - name: Run tests
         run: |
-          cd HorrorInventoryProject
           mvn test
