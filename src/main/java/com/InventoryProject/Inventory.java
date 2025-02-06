@@ -21,8 +21,7 @@ public class Inventory {
     }
 
     public boolean removeItem(String itemName) {
-        // TODO: Implement
-        return false;
+        return items.remove(itemName);
     }
 
     public boolean hasItem(String itemName) {
