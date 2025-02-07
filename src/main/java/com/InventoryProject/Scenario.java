@@ -34,26 +34,43 @@ public class Scenario {
         return inventory.removeItem(itemName);
     }
 
+    /**
+     * Code for the door, which a player needs to open.
+     * To open, first use flashlight then key.
+     */
     private boolean doorRevealed = false;
+    private boolean doorUnlocked = false;
+
+    public boolean isDoorUnlocked() {
+        return doorUnlocked;
+    }
 
     public boolean isDoorRevealed() {
         return doorRevealed;
     }
 
+    /**
+     * Reveal door using flashlight,
+     * Open using key
+     */
     public boolean useItem(String itemName) {
-        // must have item in inventory
-        if (!inventory.hasItem(itemName)) {
-            return false;
-        }
+        if (!inventory.hasItem(itemName)) return false;
 
         if ("flashlight".equalsIgnoreCase(itemName)) {
-            // reveal door
             doorRevealed = true;
-            // remove it if we want one-time usage
             inventory.useItem(itemName);
             return true;
         }
-        // Any other item usage does nothing special
+        else if ("key".equalsIgnoreCase(itemName)) {
+            // only works if doorRevealed
+            if (!doorRevealed) {
+                return false;
+            }
+            doorUnlocked = true;
+            inventory.useItem(itemName);
+            return true;
+        }
+        // other items
         inventory.useItem(itemName);
         return true;
     }
