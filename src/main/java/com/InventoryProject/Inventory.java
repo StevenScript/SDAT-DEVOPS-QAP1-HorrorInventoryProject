@@ -29,7 +29,11 @@ public class Inventory {
     }
 
     public boolean useItem(String itemName) {
-        // TODO: Implement
+        // If the item is in the list, remove it and return true
+        if (items.contains(itemName)) {
+            items.remove(itemName);
+            return true;
+        }
         return false;
     }
 

@@ -51,7 +51,7 @@ public class InventoryTest {
     @Test
     @DisplayName("Test using an item that doesn't exist")
     void testUseNonExistentItem() {
-        boolean used = inventory.useItem("Key");
+        boolean used = inventory.useItem("Potato");
         assertFalse(used, "useItem should return false if the item is not in inventory");
     }
 
