@@ -5,7 +5,6 @@ import java.util.List;
 
 /**
  * Inventory class that manages a list of item names.
- * For now, it only works with adding items.
  */
 public class Inventory {
 
