@@ -47,4 +47,21 @@ public class ScenarioTest {
         assertFalse(scenario.hasItem("door"), "Door should never be in inventory.");
     }
 
+    @Test
+    void testUseFlashlightRevealsDoor() {
+        Scenario scenario = new Scenario();
+        // Must pick up flashlight first
+        scenario.pickItem("flashlight");
+
+        // Then use it
+        boolean used = scenario.useItem("flashlight");
+        assertTrue(used, "Using flashlight should succeed if we have it");
+
+        // Store doorRevealed in Scenario and check it
+        assertTrue(scenario.isDoorRevealed(), "After using flashlight, door should be revealed");
+
+        // Check that it's removed
+        assertFalse(scenario.hasItem("flashlight"), "Flashlight removed after use");
+    }
+
 }
