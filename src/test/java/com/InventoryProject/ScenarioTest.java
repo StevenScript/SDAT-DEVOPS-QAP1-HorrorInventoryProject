@@ -64,4 +64,29 @@ public class ScenarioTest {
         assertFalse(scenario.hasItem("flashlight"), "Flashlight removed after use");
     }
 
+    @Test
+    void testUseKeyFailsIfDoorNotRevealed() {
+        Scenario scenario = new Scenario();
+        // pick up key
+        scenario.pickItem("key");
+
+        boolean usedKey = scenario.useItem("key");
+        // should fail, door is not revealed
+        assertFalse(usedKey, "Key usage fails if door isn't revealed");
+        assertFalse(scenario.isDoorUnlocked(), "Door should not be unlocked");
+    }
+
+    @Test
+    void testUseKeySucceedsOnceDoorRevealed() {
+        Scenario scenario = new Scenario();
+        scenario.pickItem("flashlight");
+        scenario.useItem("flashlight"); // reveals door
+
+        scenario.pickItem("key");
+        boolean usedKey = scenario.useItem("key");
+        assertTrue(usedKey, "Key usage should succeed once door is revealed");
+        assertTrue(scenario.isDoorUnlocked(), "Door should be unlocked after using key");
+    }
+
+
 }
