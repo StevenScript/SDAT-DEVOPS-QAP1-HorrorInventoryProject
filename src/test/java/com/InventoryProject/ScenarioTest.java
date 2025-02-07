@@ -37,4 +37,14 @@ public class ScenarioTest {
         assertFalse(scenario.hasItem("flashlight"), "After dropping, inventory shouldn't have it.");
     }
 
+    @Test
+    void testCannotPickUpDoor() {
+        Scenario scenario = new Scenario();
+        boolean pickDoor = scenario.pickItem("door");
+        assertFalse(pickDoor, "Should not be able to pick up the door.");
+
+        // Also ensure it's not in the inventory
+        assertFalse(scenario.hasItem("door"), "Door should never be in inventory.");
+    }
+
 }
