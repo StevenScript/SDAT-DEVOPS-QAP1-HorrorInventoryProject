@@ -12,6 +12,10 @@ public class Scenario {
      * Picks an item. For now, adds items with no conditions
      */
     public boolean pickItem(String itemName) {
+        // If user tries "door", return false
+        if ("door".equalsIgnoreCase(itemName)) {
+            return false;
+        }
         inventory.addItem(itemName);
         return true;
     }
