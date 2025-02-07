@@ -38,4 +38,22 @@ public class InventoryTest {
         assertTrue(removed, "removeItem should return true if item was present");
         assertFalse(inventory.hasItem("Key"), "After removal, Key should not be in inventory");
     }
+
+    @Test
+    @DisplayName("Test using an item and removes it if present)")
+    void testUseItem() {
+        inventory.addItem("Knife");
+        boolean used = inventory.useItem("Knife");
+        assertTrue(used, "useItem should return true if the item was in inventory");
+        assertFalse(inventory.hasItem("Knife"), "Knife should be removed after being used");
+    }
+
+    @Test
+    @DisplayName("Test using an item that doesn't exist")
+    void testUseNonExistentItem() {
+        boolean used = inventory.useItem("Potato");
+        assertFalse(used, "useItem should return false if the item is not in inventory");
+    }
+
 }
+
