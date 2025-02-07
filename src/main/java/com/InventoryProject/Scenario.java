@@ -33,4 +33,28 @@ public class Scenario {
     public boolean dropItem(String itemName) {
         return inventory.removeItem(itemName);
     }
+
+    private boolean doorRevealed = false;
+
+    public boolean isDoorRevealed() {
+        return doorRevealed;
+    }
+
+    public boolean useItem(String itemName) {
+        // must have item in inventory
+        if (!inventory.hasItem(itemName)) {
+            return false;
+        }
+
+        if ("flashlight".equalsIgnoreCase(itemName)) {
+            // reveal door
+            doorRevealed = true;
+            // remove it if we want one-time usage
+            inventory.useItem(itemName);
+            return true;
+        }
+        // Any other item usage does nothing special
+        inventory.useItem(itemName);
+        return true;
+    }
 }
