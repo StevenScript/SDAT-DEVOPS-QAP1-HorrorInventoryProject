@@ -33,7 +33,7 @@ public class ScenarioTest {
         boolean dropped = scenario.dropItem("flashlight");
         assertTrue(dropped, "Dropping flashlight should succeed if we have it.");
 
-        // Now scenario should not have the flare gun
+        // Now scenario should not have the flashlight
         assertFalse(scenario.hasItem("flashlight"), "After dropping, inventory shouldn't have it.");
     }
 

@@ -22,4 +22,11 @@ public class Scenario {
     public boolean hasItem(String itemName) {
         return inventory.hasItem(itemName);
     }
+
+    /**
+     * Drops item if in inventory
+     */
+    public boolean dropItem(String itemName) {
+        return inventory.removeItem(itemName);
+    }
 }
