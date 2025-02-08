@@ -113,8 +113,11 @@ For easiest access, run `Main.java` from your IDE’s run button
 ## Clean Code & Comments
 
 - **Descriptive Method Names**: `pickItem`, `dropItem`, `useItem` clearly convey their functions.
-  ![CLI Screenshot](docs/images/screenshot1.png) 
-- **Single Responsibility**: `Scenario` handles puzzle rules. `Inventory` handles item storage. `Main` deals with user input.  
+- **Small, Focused Methods**: Each case is short and understandable. Methods like pickItem and dropItem are likewise limited to one responsibility. They don’t do multiple, unrelated things in the same block of code.
+- -![Screenshot](docs/images/screenshot2.jpg) 
+  
+- **Single Responsibility**: `Scenario` handles puzzle rules. `Inventory` handles item storage. `Main` deals with user input.
+- ![Screenshot](docs/images/screenshot1.jpg)   
 
 ## Continuous Integration (CI) with GitHub Actions
 
