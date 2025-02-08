@@ -6,12 +6,13 @@ public class Main {
     public static void main(String[] args) {
         Scenario scenario = new Scenario();
         Scanner scanner = new Scanner(System.in);
+        boolean gameOver = false;
 
         System.out.println("Welcome! You see a potato, flashlight, and key on a table.");
         System.out.println("Commands: pick <item>, drop <item>, use <item>, quit");
 
 
-        while (true) {
+        while (!gameOver) {
             System.out.print("\nEnter command: ");
             String input = scanner.nextLine().trim().toLowerCase();
 
@@ -26,7 +27,7 @@ public class Main {
                 continue;
             }
             String action = parts[0];
-            String item   = parts[1];
+            String item = parts[1];
 
             switch (action) {
                 case "pick":
@@ -68,7 +69,7 @@ public class Main {
                     if (scenario.isFinished()) {
                         System.out.println("\nThe door is unlocked! You push it open and step through...");
                         System.out.println("You have escaped the spooky room. Congratulations!");
-                        break;
+                        gameOver = true;
                     }
                     break;
 
@@ -79,5 +80,5 @@ public class Main {
         }
 
         scanner.close();
-        System.out.println("Your final inventory: " + scenario.getInventory().getItems());
     }
+}
