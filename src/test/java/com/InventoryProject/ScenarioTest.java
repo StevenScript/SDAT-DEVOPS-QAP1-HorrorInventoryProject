@@ -111,6 +111,4 @@ public class ScenarioTest {
                 "Once the door is unlocked, scenario should be finished.");
     }
 
-
-
 }
