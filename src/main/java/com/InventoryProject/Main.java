@@ -65,6 +65,11 @@ public class Main {
                     } else {
                         System.out.println("Nothing happens. Do you even have a " + item + "?");
                     }
+                    if (scenario.isFinished()) {
+                        System.out.println("\nThe door is unlocked! You push it open and step through...");
+                        System.out.println("You have escaped the spooky room. Congratulations!");
+                        break;
+                    }
                     break;
 
                 default:
