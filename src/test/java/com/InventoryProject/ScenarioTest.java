@@ -88,5 +88,29 @@ public class ScenarioTest {
         assertTrue(scenario.isDoorUnlocked(), "Door should be unlocked after using key");
     }
 
+    @Test
+    void testScenarioEndsOnceDoorUnlocked() {
+        Scenario scenario = new Scenario();
+
+        // Door is not revealed, so scenario is not finished.
+        assertFalse(scenario.isFinished(), "Scenario shouldn't be finished at the start.");
+
+        // Reveal the door
+        scenario.pickItem("flashlight");
+        scenario.useItem("flashlight"); // now doorRevealed = true
+        assertFalse(scenario.isFinished(),
+                "Even after revealing the door, scenario isn't finished until we unlock it.");
+
+        // Unlock the door
+        scenario.pickItem("key");
+        boolean usedKey = scenario.useItem("key");
+        assertTrue(usedKey, "Key usage should succeed if door is revealed.");
+
+        // Now should be finished/escaped
+        assertTrue(scenario.isFinished(),
+                "Once the door is unlocked, scenario should be finished.");
+    }
+
+
 
 }
